@@ -1,0 +1,28 @@
+{% extends 'socialite/base.html'%}
+{% block title %}snap {% endblock %}
+
+{% block content %}
+<div class ="container-fluid">
+    <div class="row">
+        {% if profiles %}
+            {% for x in profiles %}
+                <div class="col-sm-3">
+                    <div class="thumbnail">
+                        <a href="{% url 'socialite:comment' x.id%}">
+                            <img src="{{x.image_cover.url}}" class="img img-circle" alt="" style="height:200px; width:80%;">
+                        </a>
+                        <div class="caption">
+                            <h4>{{x.image_caption}}</h4>
+                            <a href="" class="btn btn-success btn-sm" style="float:right;"><i class="fas fa-thumbs-up"></i></a>
+                            <a href="" class="btn btn-success btn-sm" style="float:left;"><i class="fas fa-comment"></i></a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+
+
+{% endblock %}

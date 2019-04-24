@@ -1,0 +1,27 @@
+{% extends 'socialite/base.html'%}
+{% load crispy_forms_tags%}
+{%block title%}Post image{%endblock%}
+
+{%block content%}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Post Image</h3>
+                    <hr>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{form|crispy}}
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-info">Post</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+</div>
+</div>
+{% endblock %}

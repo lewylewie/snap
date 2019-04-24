@@ -1,0 +1,35 @@
+{% extend 'socialite/base.html' %}
+{% block title %}Comments{%endblock %}
+{% block content %}
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card card-default">
+                <div class="card-body">
+                    <div class="caption">
+                        <h4 class="text-info">{[image_cover}}</h4>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<tbody>
+{% if image_cover.comment_set %}
+{% for comment in image_cover.comment_set_all %}
+<th>Comments</th>
+<th></th>
+<tr>
+    <td>{{comment.comment}}</td>
+    <td><a href="{% url 'favourite:delete-comment' image_cover.id comment.id%}" class="btn btn-danger btn-sm"><i class="fas fa=trash"></i></a></td>
+
+</tr>
+
+</tbody>
+{% endblock %}
